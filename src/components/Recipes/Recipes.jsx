@@ -70,11 +70,9 @@ const Recipes = () => {
 
   return (
     <>
-      {/* Conditionally hide the header image when viewing a recipe */}
       <Header hideHeader={selectedRecipe !== null} />
       <div className="container mt-4">
         {selectedRecipe ? (
-          // If edit mode is active, show the form pre-filled with the selected recipe
           isEditMode ? (
             <div
               className="modal fade show"
@@ -96,19 +94,19 @@ const Recipes = () => {
                     <RecipeForm
                       recipe={selectedRecipe}
                       onClose={handleBackToList}
-                      refreshRecipes={refreshRecipes} // Pass refreshRecipes to RecipeForm
+                      refreshRecipes={refreshRecipes} 
                     />
                   </div>
                 </div>
               </div>
             </div>
           ) : (
-            // Show the selected recipe's details in ViewRecipe component
             <ViewRecipe
               recipe={selectedRecipe}
               onBack={handleBackToList}
               onEdit={handleEditRecipe}
               onDelete={handleDeleteRecipe}
+              refreshRecipes={refreshRecipes} 
             />
           )
         ) : (
@@ -117,7 +115,6 @@ const Recipes = () => {
             {error && <p>{error}</p>}
             {!isLoading && !error && (
               <>
-                {/* Add Recipe button */}
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <br />
                   <button
@@ -139,12 +136,10 @@ const Recipes = () => {
                   </button>
                 </div>
 
-                {/* Recipe List */}
                 <RecipeList recipes={recipes} onViewRecipe={handleViewRecipe} />
               </>
             )}
 
-            {/* Modal for adding a new recipe */}
             <div
               className="modal fade"
               id="addRecipeModal"
@@ -168,7 +163,7 @@ const Recipes = () => {
                   <div className="modal-body">
                     <RecipeForm
                       onClose={handleBackToList}
-                      refreshRecipes={refreshRecipes}
+                      refreshRecipes={refreshRecipes} 
                     />
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useHttp from "../../hooks/useHttp"; // Import the custom hook
+import useHttp from "../../hooks/useHttp"; 
 
 const RecipeForm = ({ recipe, refreshRecipes }) => {
   const [name, setName] = useState(recipe ? recipe.name : "");
@@ -21,7 +21,7 @@ const RecipeForm = ({ recipe, refreshRecipes }) => {
   const [category, setCategory] = useState(
     recipe ? recipe.category : "Main Course"
   );
-  const [useFile, setUseFile] = useState(false); // Toggler for file or URL
+  const [useFile, setUseFile] = useState(false); 
 
   const { isLoading, error, sendRequest } = useHttp();
 
@@ -37,43 +37,24 @@ const RecipeForm = ({ recipe, refreshRecipes }) => {
     setServings("4");
     setCategory("Main Course");
     setUseFile(false);
-  };
-
-//   const closeModal = () => {
-//     const modalElement = document.getElementById("addRecipeModal");
-//     if (modalElement) {
-//       // Initialize or get the existing modal instance
-//       const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
-//       modalInstance.hide();
-  
-//       // Remove the backdrop manually if it remains in the DOM
-//       const backdrop = document.querySelector('.modal-backdrop');
-//       if (backdrop) {
-//         backdrop.remove(); // This will remove the gray overlay
-//       }
-  
-//       // Remove the 'modal-open' class from the body, if not removed
-//       document.body.classList.remove('modal-open');
-//     }
-//   };
-  
+  };  
   
 
-  const submitOrderHandler = async (userData) => {
+const submitOrderHandler = async (userData) => {
     const applyData = () => {
       console.log("Recipe submitted!");
-      resetForm(); // Reset form after submission
-    //   closeModal(); // Close modal after submission
-      refreshRecipes(); // Refresh the list of recipes
-      window.location.reload(); // Automatically refresh the entire page
-
+      resetForm(); 
+      if (refreshRecipes) {
+        refreshRecipes(); 
+      }
+      window.location.reload(); 
     };
-
+  
     const url = recipe
       ? `https://recipe-app-4faa1-default-rtdb.firebaseio.com/recipes/${recipe.id}.json`
       : "https://recipe-app-4faa1-default-rtdb.firebaseio.com/recipes.json";
-    const method = recipe ? "PATCH" : "POST"; // Use PATCH for editing, POST for new recipe
-
+    const method = recipe ? "PATCH" : "POST"; 
+  
     sendRequest(
       {
         url: url,
@@ -86,6 +67,7 @@ const RecipeForm = ({ recipe, refreshRecipes }) => {
       applyData
     );
   };
+  
 
   const formSubmitHandler = (event) => {
     event.preventDefault();

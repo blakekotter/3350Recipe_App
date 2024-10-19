@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const RecipeList = ({ recipes, onViewRecipe }) => {
-  const [selectedCategory, setSelectedCategory] = useState(""); // State to store the selected category
+  const [selectedCategory, setSelectedCategory] = useState(""); // Store the selected category
 
-  // Get unique categories
+  // Get categories
   const uniqueCategories = [
     ...new Set(recipes.map((recipe) => recipe.category)),
   ];
@@ -30,7 +30,7 @@ const RecipeList = ({ recipes, onViewRecipe }) => {
         <select
           style={{ width: "50%", padding: "10px" }}
           value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)} // Update selected category
+          onChange={(e) => setSelectedCategory(e.target.value)} 
         >
           <option value="">All Categories</option>{" "}
           {/* Default option for showing all */}
@@ -42,7 +42,7 @@ const RecipeList = ({ recipes, onViewRecipe }) => {
         </select>
       </div>
 
-      {/* Main content area: Ensure consistent grid and card sizing */}
+      {/* Main content area:*/}
       <div
         style={{
           display: "flex",
@@ -56,15 +56,15 @@ const RecipeList = ({ recipes, onViewRecipe }) => {
             key={recipe.id}
             style={{
               flex: "1 1 30%",
-              minWidth: "280px", // Ensure a minimum width for consistency
-              maxWidth: "30%", // Consistent max width for grid structure
+              minWidth: "280px", 
+              maxWidth: "30%", 
               marginBottom: "1rem",
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
             }}
           >
             <div
               style={{
-                minHeight: "400px", // Ensures all cards have a consistent height
+                minHeight: "400px", 
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -102,10 +102,10 @@ const RecipeList = ({ recipes, onViewRecipe }) => {
                   onClick={() => onViewRecipe(recipe)}
                   onMouseOver={(e) =>
                     (e.target.style.backgroundColor = "#5e8e13")
-                  } // Darker green on hover
+                  } 
                   onMouseOut={(e) =>
                     (e.target.style.backgroundColor = "#76a71d")
-                  } // Reset color when not hovering
+                  } 
                 >
                   View Recipe
                 </button>
