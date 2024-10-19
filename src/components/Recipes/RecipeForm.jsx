@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useHttp from "../../hooks/useHttp"; // Import the custom hook
 
-const RecipeForm = ({ recipe, onClose, refreshRecipes }) => {
+const RecipeForm = ({ recipe, refreshRecipes }) => {
   const [name, setName] = useState(recipe ? recipe.name : "");
   const [ingredients, setIngredients] = useState(
     recipe ? recipe.ingredients.join(", ") : ""
@@ -39,20 +39,34 @@ const RecipeForm = ({ recipe, onClose, refreshRecipes }) => {
     setUseFile(false);
   };
 
-  const closeModal = () => {
-    const modalElement = document.getElementById("addRecipeModal");
-    const modalInstance = window.bootstrap.Modal.getInstance(modalElement);
-    if (modalInstance) {
-      modalInstance.hide();
-    }
-  };
+//   const closeModal = () => {
+//     const modalElement = document.getElementById("addRecipeModal");
+//     if (modalElement) {
+//       // Initialize or get the existing modal instance
+//       const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+//       modalInstance.hide();
+  
+//       // Remove the backdrop manually if it remains in the DOM
+//       const backdrop = document.querySelector('.modal-backdrop');
+//       if (backdrop) {
+//         backdrop.remove(); // This will remove the gray overlay
+//       }
+  
+//       // Remove the 'modal-open' class from the body, if not removed
+//       document.body.classList.remove('modal-open');
+//     }
+//   };
+  
+  
 
   const submitOrderHandler = async (userData) => {
     const applyData = () => {
       console.log("Recipe submitted!");
       resetForm(); // Reset form after submission
-      closeModal(); // Close modal after submission
+    //   closeModal(); // Close modal after submission
       refreshRecipes(); // Refresh the list of recipes
+      window.location.reload(); // Automatically refresh the entire page
+
     };
 
     const url = recipe
