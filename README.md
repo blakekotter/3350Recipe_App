@@ -1,5 +1,5 @@
 
-## This application is a web-based app where users can browse, add, and manage recipes. The app uses Firebase as the backend database, allowing for storage and retrieval of recipe data.
+# This application is a web-based app where users can browse, add, and manage recipes. The app uses Firebase as the backend database, allowing for storage and retrieval of recipe data.
 
 ## Features
 
