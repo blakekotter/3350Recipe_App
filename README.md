@@ -1,8 +1,19 @@
-# React + Vite
+# Recipe App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based recipe app where users can browse, add, and manage recipes. The app uses Firebase as the backend database, allowing for storage and retrieval of recipe data.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Recipe Display**: View a list of recipes with images and details.
+- **Firebase Integration**: All recipes are stored in Firebase.
+- **Form Validation**: Ensures all inputs meet required standards before adding a recipe.
+- **HTTP Requests**: Uses custom hooks to handle HTTP GET and POST requests.
+- **Image Upload**: Upload images for each recipe to enhance the visual experience.
+
+## Technologies Used 💻
+
+- **React**: A powerful JavaScript library for building user interfaces.
+- **Firebase**: For data storage.
+- **CSS Modules**: Styling for a clean UI.
+- **React Router**: Enables navigation for a multi-page layout and smooth user experience.
+- **Axios or Fetch**: HTTP client for handling API requests.
