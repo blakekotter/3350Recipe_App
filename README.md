@@ -10,7 +10,7 @@ A web-based recipe app where users can browse, add, and manage recipes. The app 
 - **HTTP Requests**: Uses custom hooks to handle HTTP GET and POST requests.
 - **Image Upload**: Upload images for each recipe to enhance the visual experience.
 
-## Technologies Used 💻
+## Technologies Used
 
 - **React**: A powerful JavaScript library for building user interfaces.
 - **Firebase**: For data storage.
